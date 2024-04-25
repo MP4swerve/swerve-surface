@@ -3,6 +3,8 @@ $(document).ready(() => {
   
   // Create DOM elements for tweets and input form
   const $body = $('body');
+  const $header = $('<header>SWERVE SURFACE</header>');
+  const $logo = $('<img src="https://th.bing.com/th/id/OIP.HZTabPYFPRJx2KLbxyVEQQHaF7?w=219&h=180&c=7&r=0&o=5&dpr=2&pid=1.7" alt="Logo">');
   const $tweetsDiv = $('<div></div>');
   const $button = $('<button>Click</button>');
   const $tweetInput = $('<input type="text" placeholder="Type your tweet here...">');
@@ -16,11 +18,70 @@ $(document).ready(() => {
   $createNewUser.css('float', 'right');
 
   // Append elements to the body
-  $body.prepend($form, $button, $tweetsDiv);
+  $body.prepend($header, $form, $button, $tweetsDiv);
+  $header.prepend($logo);
   $form.prepend($usernameInput, $tweetInput, $tweetButton, $createNewUser, $createButton);
   
-   // Set background color for the body
-   $('body').css('background-color', 'rgb(0, 255, 255)');
+  // Set background color for the body
+  $('body').css({
+    'background-color': '#f5f8fa',
+    'font-family': '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif',
+    'color': '#14171a',
+    'font-size': '14px'
+  });
+
+  // Set styles for the form
+  $form.css({
+    'padding': '10px',
+    'border-bottom': '1px solid #e1e8ed',
+    'background-color': '#fff'
+  });
+
+  // Set styles for the tweet input
+  $tweetInput.css({
+    'width': '100%',
+    'height': '40px',
+    'padding': '10px',
+    'margin-bottom': '10px',
+    'border-radius': '20px',
+    'border': '1px solid #ccd6dd',
+    'box-sizing': 'border-box',
+    'outline': 'none'
+  });
+
+  // Set styles for the tweet button
+  $tweetButton.css({
+    'padding': '10px 20px',
+    'background-color': '#1da1f2',
+    'color': '#fff',
+    'border': 'none',
+    'border-radius': '20px',
+    'cursor': 'pointer',
+    'outline': 'none'
+  });
+
+  // Set styles for the tweets container
+  $tweetsDiv.css({
+    'padding': '20px'
+  });
+
+  $logo.css({
+    'float': 'left', // Set the logo to float left
+    'margin-right': '10px',
+    'width': '100px', // Set the width to 100 pixels
+    'height': 'auto' // Maintain the aspect ratio
+  });
+
+  $('header').css({
+    'background-color': '#f5f8fa', // Set background color to Twitter blue
+    'color': 'red', // Set text color to white
+    'padding': '10px', // Add padding to create space around the content
+    'text-align': 'center', // Align text to the center
+    'font-size': '100px', // Set font size
+    'font-weight': 'bold', // Set font weight to bold
+    'text-transform': 'uppercase', // Transform text to uppercase
+    'border-bottom': '2px solid #ddd', // Add a bottom border with a light gray color
+  });
 
   // Render a single tweet
   const renderTweet = (tweet) => {
